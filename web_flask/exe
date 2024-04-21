@@ -1,0 +1,9 @@
+#!/bin/bash
+
+chmod u+x *.py
+
+echo "Loading!"
+echo "Loading!!"
+echo "Loading!!!"
+echo "Loading!!!!"
+echo "Done"
