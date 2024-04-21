@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Define storage engine using MySQL database
 """
-from models.base_model import BaseModel, Base
+from models.base_model import Base
 from models.user import User
 from models.state import State
 from models.city import City
@@ -9,8 +9,7 @@ from models.amenity import Amenity
 from models.place import Place
 from models.review import Review
 from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session
-from sqlalchemy.orm.session import sessionmaker, Session
+from sqlalchemy.orm import sessionmaker, scoped_session
 from os import getenv
 
 all_classes = {'State': State, 'City': City,
@@ -40,7 +39,7 @@ class DBStorage:
                                       pool_pre_ping=True)
         # drop tables if test environment
         if getenv('HBNB_ENV') == 'test':
-                Base.metadata.drop_all(self.__engine)
+            Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
         """Query and return all objects by class/generally
